@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище kafeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="marketolog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rek" Type="nvarchar(max)" />
+          <Property Name="Kol" Type="int" />
+          <Property Name="Price" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tovaroved">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="zak" Type="nvarchar(max)" />
+          <Property Name="ost" Type="nvarchar(max)" />
+          <Property Name="otst" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="zakupchik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Idmark" Type="int" Nullable="false" />
+          <Property Name="Idtov" Type="int" Nullable="false" />
+          <Property Name="pok" Type="nvarchar(max)" />
+          <Property Name="price" Type="bigint" Nullable="false" />
+          <Property Name="kol" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Хранилище kafeModelContainer">
+          <EntitySet Name="marketolog" EntityType="Self.marketolog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tovaroved" EntityType="Self.tovaroved" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zakupchik" EntityType="Self.zakupchik" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="marketolog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Kol" Type="Int32" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tovaroved">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zak" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="otst" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="zakupchik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Idmark" Type="Int32" Nullable="false" />
+          <Property Name="Idtov" Type="Int32" Nullable="false" />
+          <Property Name="pok" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int64" Nullable="false" />
+          <Property Name="kol" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="kafeEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="marketolog" EntityType="Self.marketolog" />
+          <EntitySet Name="tovaroved" EntityType="Self.tovaroved" />
+          <EntitySet Name="zakupchik" EntityType="Self.zakupchik" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище kafeModelContainer" CdmEntityContainer="kafeEntities3">
+          <EntitySetMapping Name="marketolog">
+            <EntityTypeMapping TypeName="kafeModel.marketolog">
+              <MappingFragment StoreEntitySet="marketolog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rek" ColumnName="Rek" />
+                <ScalarProperty Name="Kol" ColumnName="Kol" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tovaroved">
+            <EntityTypeMapping TypeName="kafeModel.tovaroved">
+              <MappingFragment StoreEntitySet="tovaroved">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="zak" ColumnName="zak" />
+                <ScalarProperty Name="ost" ColumnName="ost" />
+                <ScalarProperty Name="otst" ColumnName="otst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zakupchik">
+            <EntityTypeMapping TypeName="kafeModel.zakupchik">
+              <MappingFragment StoreEntitySet="zakupchik">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Idmark" ColumnName="Idmark" />
+                <ScalarProperty Name="Idtov" ColumnName="Idtov" />
+                <ScalarProperty Name="pok" ColumnName="pok" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="kol" ColumnName="kol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
